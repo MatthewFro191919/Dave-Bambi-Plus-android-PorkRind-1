@@ -11149,30 +11149,16 @@ class PlayState extends MusicBeatState
 			case 'porkrind':
 				switch (curBeat)
 				{
-					case 128:
+					case 424:
 				           switchDad('bluegonal', dad.getPosition(), false);
 				           threedbg.active = false;
 					   threedbg2.active = true;
 					   threedbg3.active = false;
-					case 720:
-                                           black = new FlxSprite().makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-					   black.screenCenter();
-					   black.alpha = 1;
-					   add(black);
-					   FlxTween.tween(black, 1, 10, {ease: FlxEase.backOut});
 					case 970:
 					   switchDad('redman', dad.getPosition(), false);
-                                           FlxTween.tween(black, 1, 10, {ease: FlxEase.backIn});
-					   black.alpha = 0;
 					   threedbg.active = false;
 					   threedbg2.active = false;
                                            threedbg3.active = true;
-					 case 1072:
-				           black = new FlxSprite().makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-				           black.screenCenter();
-				           black.alpha = 1;
-				           add(black);
-				           FlxTween.tween(black, 1, 10, {ease: FlxEase.backOut});
 				}
 		}
 		if (spotLightPart && spotLight != null && spotLight.exists && curBeat % 3 == 0)
