@@ -2941,14 +2941,12 @@ class PlayState extends MusicBeatState
 	    		var paul:BGSprite = new BGSprite('paul', -882.75, -367.05, ('backgrounds/the_new_dave_mod/paul'), null, 0.95, 0.95, 'shared');
 	    		// paul.setGraphicSize(Std.int(bg.width * 1);
     			// paul.updateHitbox();
-	    		paul.antialiasing = true;
 		    	add(paul);
 
 	    		var ploor:BGSprite = new BGSprite('ploor', -796.6, 604.3, ('backgrounds/the_new_dave_mod/ploor'), null, 0.95, 0.95, 'shared');
 			    ploor.animation.play('loop');
 	    		// ploor.setGraphicSize(Std.int(bg.width * 1);
     			// ploor.updateHitbox();
-	    		ploor.antialiasing = true;
 		    	add(ploor);
 
 			case 'daWorld':
