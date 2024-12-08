@@ -342,6 +342,8 @@ class PlayState extends MusicBeatState
 	var daveHouseDream:Array<FlxSprite> = [];
 	var tristanHouseDream:Array<FlxSprite> = [];
 
+	//Porkrind stuff
+	var PorkrindBGShit:Array<FlxSprite> = [];
 
 	//bg stuff
 	var baldi:BGSprite;
@@ -511,10 +513,9 @@ class PlayState extends MusicBeatState
 	var shx:Float;
 	var shy:Float;
 	var sh_r:Float = 60;
-        
-	var threeDBG:BGSprite;
-	var threeDBG2:BGSprite;
-	var threeDBG3:BGSprite;
+
+	var bg2:BGSprite;
+	var bg3:BGSprite;
 
 	override public function create()
 	{
@@ -2941,11 +2942,13 @@ class PlayState extends MusicBeatState
      			curStage = 'slave';
 	    		var paul:BGSprite = new BGSprite('paul', -882.75, -367.05, ('backgrounds/the_new_dave_mod/paul'), null, 0.95, 0.95, 'shared');
 	    		// paul.setGraphicSize(Std.int(bg.width * 1);
+			// paul.antialiasing = false;
     			// paul.updateHitbox();
 		    	add(paul);
 
 	    		var ploor:BGSprite = new BGSprite('ploor', -796.6, 604.3, ('backgrounds/the_new_dave_mod/ploor'), null, 0.95, 0.95, 'shared');
 			    ploor.animation.play('loop');
+			// ploor.antialiasing = false;
 	    		// ploor.setGraphicSize(Std.int(bg.width * 1);
     			// ploor.updateHitbox();
 		    	add(ploor);
@@ -2954,34 +2957,36 @@ class PlayState extends MusicBeatState
 				bgZoom = 0.5;
 				stageName = 'daWorld';
 
-				threeDBG = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
-                                threeDBG.loadGraphic(Paths.image('backgrounds/porkrind/yello', 'shared'));
-			        // threeDBG.antialiasing = false;
-				threeDBG.setGraphicSize(Std.int(threeDBG.width * 3.5));
-				threeDBG.scrollFactor.set();
-				sprites.add(threeDBG);
-				add(threeDBG);
-				voidShader(threeDBG);
+				var bg:BGSprite = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+                                bg.loadGraphic(Paths.image('backgrounds/porkrind/yello', 'shared'));
+			        // bg.antialiasing = false;
+				bg.setGraphicSize(Std.int(bg.width * 3.5));
+				bg.scrollFactor.set();
+				PorkrindBGShit.push(bg);
+				bg.visible = true;
+				sprites.add(bg);
+				add(bg);
+				voidShader(bg);
 						
-				threeDBG2 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
-				threeDBG2.loadGraphic(Paths.image('backgrounds/porkrind/bloo', 'shared'));
-				// threeDBG2.antialiasing = false;
-				threeDBG2.active = false;
-				threeDBG2.setGraphicSize(Std.int(threeDBG2.width * 3.5));
-				threeDBG2.scrollFactor.set();
-				sprites.add(threeDBG2);
-				add(threeDBG2);
-				voidShader(threeDBG2);
+				bg2 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+				bg2.loadGraphic(Paths.image('backgrounds/porkrind/bloo', 'shared'));
+				// bg2.antialiasing = false;
+				bg2.visible = false;
+				bg2.setGraphicSize(Std.int(bg2.width * 3.5));
+				bg2.scrollFactor.set();
+				sprites.add(bg2);
+				add(bg2);
+				voidShader(bg2);
 
-				threeDBG3 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
-				threeDBG3.loadGraphic(Paths.image('backgrounds/porkrind/evil', 'shared'));
-				// threeDBG2.antialiasing = false;
-                                threeDBG3.active = false;
-				threeDBG3.setGraphicSize(Std.int(threeDBG3.width * 3.5));
-				threeDBG3.scrollFactor.set();
-				sprites.add(threeDBG3);
-				add(threeDBG3);
-				voidShader(threeDBG3);
+				bg3 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+				bg3.loadGraphic(Paths.image('backgrounds/porkrind/evil', 'shared'));
+				bg3.visible = false;
+                                bg3.active = false;
+				bg3.setGraphicSize(Std.int(bg3.width * 3.5));
+				bg3.scrollFactor.set();
+				sprites.add(bg3);
+				add(bg3);
+				voidShader(bg3);
 			default:
 				bgZoom = 0.9;
 				stageName = 'stage';
@@ -11151,16 +11156,20 @@ class PlayState extends MusicBeatState
 			case 'porkrind':
 				switch (curBeat)
 				{
-					case 424:
+				    case 424:
 				           switchDad('bluegonal', dad.getPosition(), false);
-				           threeDBG.active = false;
-					   threeDBG2.active = true;
-					   threeDBG3.active = false;
-					case 970:
-					   switchDad('redman', dad.getPosition(), false);
-					   threeDBG.active = false;
-					   threeDBG2.active = false;
-                                           threeDBG3.active = true;
+	
+					for (sprite in PorkrindBGShit)
+					{
+						sprite.visible = true;
+					}
+					bg2.active = true;
+					bg3.active = false;
+				    case 970:
+					switchDad('redman', dad.getPosition(), false);
+					bg.active = false;
+					bg2.active = false;
+					bg3.active = true;
 				}
 		}
 		if (spotLightPart && spotLight != null && spotLight.exists && curBeat % 3 == 0)
