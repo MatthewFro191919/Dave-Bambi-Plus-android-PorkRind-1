@@ -512,9 +512,9 @@ class PlayState extends MusicBeatState
 	var shy:Float;
 	var sh_r:Float = 60;
         
-	var threedbg:BGSprite;
-	var threedbg2:BGSprite;
-	var threedbg3:BGSprite;
+	var threeDBG:BGSprite;
+	var threeDBG2:BGSprite;
+	var threeDBG3:BGSprite;
 
 	override public function create()
 	{
@@ -2955,31 +2955,34 @@ class PlayState extends MusicBeatState
 				bgZoom = 0.5;
 				stageName = 'daWorld';
 
-				threedbg = new BGSprite('void', -1500, -800, 'backgrounds/porkrind/yello', null, 1, 1, false, true, 'shared');
-				threedbg.setGraphicSize(Std.int(threedbg.width * 3.5));
-				threedbg.scrollFactor.set();
-				threedbg.antialiasing = false;
-				sprites.add(threedbg);
-				add(threedbg);
-				voidShader(threedbg);
+				threeDBG = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+                                threeDBG.loadGraphic(Paths.image('backgrounds/porkrind/yello', 'shared'));
+				threeDBG.setGraphicSize(Std.int(threeDBG.width * 3.5));
+				threeDBG.scrollFactor.set();
+				threeDBG.antialiasing = false;
+				sprites.add(threeDBG);
+				add(threeDBG);
+				voidShader(threeDBG);
 						
-				threedbg2 = new BGSprite('void', -1500, -800, 'backgrounds/porkrind/blo', null, 1, 1, false, true, 'shared');
-				threedbg2.active = false;
-				threedbg2.setGraphicSize(Std.int(threedbg2.width * 3.5));
-				threedbg2.scrollFactor.set();
-				threedbg2.antialiasing = false;
-				sprites.add(threedbg2);
-				add(threedbg2);
-				voidShader(threedbg2);
+				threeDBG2 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+				threeDBG2.loadGraphic(Paths.image('backgrounds/porkrind/bloo', 'shared'));
+				threeDBG2.active = false;
+				threeDBG2.setGraphicSize(Std.int(threeDBG2.width * 3.5));
+				threeDBG2.scrollFactor.set();
+				threeDBG2.antialiasing = false;
+				sprites.add(threeDBG2);
+				add(threeDBG2);
+				voidShader(threeDBG2);
 
-				threedbg3 = new BGSprite('void', -1500, -800, 'backgrounds/porkrind/evil', null, 1, 1, false, true, 'shared');
-				threedbg3.active = false;
-				threedbg3.setGraphicSize(Std.int(threedbg3.width * 3.5));
-				threedbg3.scrollFactor.set();
-				threedbg3.antialiasing = false;
-				sprites.add(threedbg3);
-				add(threedbg3);
-				voidShader(threedbg3);
+				threeDBG3 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
+				threeDBG3.loadGraphic(Paths.image('backgrounds/porkrind/evil', 'shared'));
+				threeDBG3.active = false;
+				threeDBG3.setGraphicSize(Std.int(threeDBG3.width * 3.5));
+				threeDBG3.scrollFactor.set();
+				threeDBG3.antialiasing = false;
+				sprites.add(threeDBG3);
+				add(threeDBG3);
+				voidShader(threeDBG3);
 			default:
 				bgZoom = 0.9;
 				stageName = 'stage';
@@ -11151,14 +11154,14 @@ class PlayState extends MusicBeatState
 				{
 					case 424:
 				           switchDad('bluegonal', dad.getPosition(), false);
-				           threedbg.active = false;
-					   threedbg2.active = true;
-					   threedbg3.active = false;
+				           threeDBG.active = false;
+					   threeDBG2.active = true;
+					   threeDBG3.active = false;
 					case 970:
 					   switchDad('redman', dad.getPosition(), false);
-					   threedbg.active = false;
-					   threedbg2.active = false;
-                                           threedbg3.active = true;
+					   threeDBG.active = false;
+					   threeDBG2.active = false;
+                                           threeDBG3.active = true;
 				}
 		}
 		if (spotLightPart && spotLight != null && spotLight.exists && curBeat % 3 == 0)
