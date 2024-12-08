@@ -2959,7 +2959,6 @@ class PlayState extends MusicBeatState
                                 threeDBG.loadGraphic(Paths.image('backgrounds/porkrind/yello', 'shared'));
 				threeDBG.setGraphicSize(Std.int(threeDBG.width * 3.5));
 				threeDBG.scrollFactor.set();
-				threeDBG.antialiasing = false;
 				sprites.add(threeDBG);
 				add(threeDBG);
 				voidShader(threeDBG);
@@ -2969,7 +2968,6 @@ class PlayState extends MusicBeatState
 				threeDBG2.active = false;
 				threeDBG2.setGraphicSize(Std.int(threeDBG2.width * 3.5));
 				threeDBG2.scrollFactor.set();
-				threeDBG2.antialiasing = false;
 				sprites.add(threeDBG2);
 				add(threeDBG2);
 				voidShader(threeDBG2);
@@ -2979,7 +2977,6 @@ class PlayState extends MusicBeatState
 				threeDBG3.active = false;
 				threeDBG3.setGraphicSize(Std.int(threeDBG3.width * 3.5));
 				threeDBG3.scrollFactor.set();
-				threeDBG3.antialiasing = false;
 				sprites.add(threeDBG3);
 				add(threeDBG3);
 				voidShader(threeDBG3);
