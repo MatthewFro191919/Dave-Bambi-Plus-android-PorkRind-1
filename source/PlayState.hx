@@ -2981,7 +2981,6 @@ class PlayState extends MusicBeatState
 				bg3 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
 				bg3.loadGraphic(Paths.image('backgrounds/porkrind/evil', 'shared'));
 				bg3.visible = false;
-                                bg3.active = false;
 				bg3.setGraphicSize(Std.int(bg3.width * 3.5));
 				bg3.scrollFactor.set();
 				sprites.add(bg3);
@@ -11157,19 +11156,21 @@ class PlayState extends MusicBeatState
 				switch (curBeat)
 				{
 				    case 424:
-				           switchDad('bluegonal', dad.getPosition(), false);
-	
+				        switchDad('bluegonal', dad.getPosition(), false);
+					for (sprite in PorkrindBGShit)
+					{
+						sprite.visible = false;
+					}
+					bg2.visible = true;
+					bg3.visible = false;
+				    case 970:
+					switchDad('redman', dad.getPosition(), false);
 					for (sprite in PorkrindBGShit)
 					{
 						sprite.visible = true;
 					}
-					bg2.active = true;
-					bg3.active = false;
-				    case 970:
-					switchDad('redman', dad.getPosition(), false);
-					bg.active = false;
-					bg2.active = false;
-					bg3.active = true;
+				        bg2.visible = false;
+					bg3.visible = true;
 				}
 		}
 		if (spotLightPart && spotLight != null && spotLight.exists && curBeat % 3 == 0)
