@@ -2933,6 +2933,7 @@ class PlayState extends MusicBeatState
 				blackScreen.cameras = [camGame];
 				blackScreen.screenCenter();
 				blackScreen.scrollFactor.set();
+	         		// blackScreen.antialiasing = false;
 				blackScreen.alpha = 1;
 				add(blackScreen);
 		    case 'superpave':
@@ -2940,11 +2941,13 @@ class PlayState extends MusicBeatState
      			curStage = 'slave';
 	    		var paul:BGSprite = new BGSprite('paul', -882.75, -367.05, ('backgrounds/the_new_dave_mod/paul'), null, 0.95, 0.95, 'shared');
 	    		// paul.setGraphicSize(Std.int(bg.width * 1);
+			// paul.antialiasing = false;
     			// paul.updateHitbox();
 		    	add(paul);
 
 	    		var ploor:BGSprite = new BGSprite('ploor', -796.6, 604.3, ('backgrounds/the_new_dave_mod/ploor'), null, 0.95, 0.95, 'shared');
 			    ploor.animation.play('loop');
+			// ploor.antialiasing = false;
 	    		// ploor.setGraphicSize(Std.int(bg.width * 1);
     			// ploor.updateHitbox();
 		    	add(ploor);
@@ -2955,6 +2958,7 @@ class PlayState extends MusicBeatState
 
 				threeDBG = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
                                 threeDBG.loadGraphic(Paths.image('backgrounds/porkrind/yello', 'shared'));
+			        // threeDBG.antialiasing = false;
 				threeDBG.setGraphicSize(Std.int(threeDBG.width * 3.5));
 				threeDBG.scrollFactor.set();
 				sprites.add(threeDBG);
@@ -2963,6 +2967,7 @@ class PlayState extends MusicBeatState
 						
 				threeDBG2 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
 				threeDBG2.loadGraphic(Paths.image('backgrounds/porkrind/bloo', 'shared'));
+				// threeDBG2.antialiasing = false;
 				threeDBG2.active = false;
 				threeDBG2.setGraphicSize(Std.int(threeDBG2.width * 3.5));
 				threeDBG2.scrollFactor.set();
@@ -2972,7 +2977,8 @@ class PlayState extends MusicBeatState
 
 				threeDBG3 = new BGSprite('void', -1500, -800, '', null, 1, 1, false, true);
 				threeDBG3.loadGraphic(Paths.image('backgrounds/porkrind/evil', 'shared'));
-				threeDBG3.active = false;
+				// threeDBG2.antialiasing = false;
+                                threeDBG3.active = false;
 				threeDBG3.setGraphicSize(Std.int(threeDBG3.width * 3.5));
 				threeDBG3.scrollFactor.set();
 				sprites.add(threeDBG3);
